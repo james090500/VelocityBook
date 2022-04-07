@@ -1,0 +1,15 @@
+name = "example"
+perm = "default"
+sound = "ENTITY_ARROW_HIT_PLAYER"
+commands = [
+    "rules",
+    "version",
+    "plugins",
+    "help",
+    "pl"
+]
+content = """\
+    This is a book
+    This is a new line
+    &4and this is red!
+"""

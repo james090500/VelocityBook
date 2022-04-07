@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+}
+
+group 'com.james090500.VelocityBook'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+
+    maven {
+        name 'protocolize'
+        url = 'https://mvn.exceptionflug.de/repository/exceptionflug-public/'
+    }
+
+    maven {
+        name 'velocity'
+        url 'https://nexus.velocitypowered.com/repository/maven-public/'
+    }
+}
+
+dependencies {
+    //Velocity
+    compileOnly 'com.velocitypowered:velocity-api:3.0.1'
+    annotationProcessor 'com.velocitypowered:velocity-api:3.0.1'
+
+    //Lombok
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+
+    //Protocolize
+    compileOnly 'dev.simplix:protocolize-api:2.1.2'
+}
