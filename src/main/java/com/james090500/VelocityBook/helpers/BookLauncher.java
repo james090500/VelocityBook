@@ -2,17 +2,15 @@ package com.james090500.VelocityBook.helpers;
 
 import com.james090500.VelocityBook.VelocityBook;
 import com.james090500.VelocityBook.config.Configs;
+import com.james090500.VelocityBook.packets.OpenBookPacket;
 import com.velocitypowered.api.proxy.Player;
-import dev.simplix.protocolize.api.Hand;
 import dev.simplix.protocolize.api.Protocolize;
 import dev.simplix.protocolize.api.SoundCategory;
-import dev.simplix.protocolize.api.inventory.Inventory;
 import dev.simplix.protocolize.api.inventory.PlayerInventory;
 import dev.simplix.protocolize.api.item.ItemStack;
 import dev.simplix.protocolize.api.player.ProtocolizePlayer;
 import dev.simplix.protocolize.data.ItemType;
 import dev.simplix.protocolize.data.Sound;
-import dev.simplix.protocolize.data.packets.UseItem;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 
 public class BookLauncher {
@@ -59,7 +57,7 @@ public class BookLauncher {
         //Cannot send dev.simplix.protocolize.data.packets.UseItem to players with protocol version 758
         //I think I need a packet here...
         try {
-            protocolizePlayer.sendPacket(new UseItem());
+            protocolizePlayer.sendPacket(new OpenBookPacket());
         } catch(Exception e) {
             e.printStackTrace();
         }
