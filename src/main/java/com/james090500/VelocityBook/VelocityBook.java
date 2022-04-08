@@ -4,6 +4,7 @@ import com.google.inject.Inject;
 import com.james090500.VelocityBook.commands.CommandHandler;
 import com.james090500.VelocityBook.config.Configs;
 import com.james090500.VelocityBook.helpers.BookLauncher;
+import com.james090500.VelocityBook.packets.OpenBookPacket;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.builder.RequiredArgumentBuilder;
@@ -17,6 +18,9 @@ import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.proxy.Player;
 import com.velocitypowered.api.proxy.ProxyServer;
+import dev.simplix.protocolize.api.PacketDirection;
+import dev.simplix.protocolize.api.Protocol;
+import dev.simplix.protocolize.api.Protocolize;
 import lombok.Getter;
 import org.slf4j.Logger;
 
@@ -39,6 +43,10 @@ public class VelocityBook {
 
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event) {
+        //Register the packet
+        Protocolize.protocolRegistration().registerPacket(OpenBookPacket.MAPPINGS, Protocol.PLAY, PacketDirection.CLIENTBOUND, OpenBookPacket.class);
+
+        //Load the configs
         Configs.loadConfigs(this);
 
         //Setup command flow
