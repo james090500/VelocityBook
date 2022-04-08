@@ -45,11 +45,11 @@ public class BookLauncher {
 
         //Put book in hand, open then remove book
         PlayerInventory playerInventory = protocolizePlayer.proxyInventory();
-        int hand = playerInventory.heldItem() + 36;
+        int handSlot = 8;
 
         //Put book in hand
-        playerInventory.item(hand, bookConfig.getItemStack());
-        playerInventory.heldItem((short) 0);
+        playerInventory.item(handSlot + 36, bookConfig.getItemStack());
+        playerInventory.heldItem((short) handSlot);
         playerInventory.update();
 
         //Open Book
@@ -60,8 +60,8 @@ public class BookLauncher {
             e.printStackTrace();
         }
 
-        //Return item (item is null as inventory is null?)
-        playerInventory.item(hand, new ItemStack(ItemType.AIR));
+        //Empty the inventory
+        playerInventory.item(handSlot + 36, ItemStack.NO_DATA);
         playerInventory.update();
 
         if(bookConfig.getSound() != null) {
