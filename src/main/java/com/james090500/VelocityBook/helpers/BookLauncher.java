@@ -54,9 +54,6 @@ public class BookLauncher {
         playerInventory.heldItem((short) 0);
         playerInventory.update();
 
-        String test = Protocolize.protocolRegistration().debugInformation();
-        velocityBook.getLogger().warn(test);
-
         //Open Book
         //Cannot send dev.simplix.protocolize.data.packets.UseItem to players with protocol version 758
         //I think I need a packet here...

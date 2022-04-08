@@ -22,7 +22,6 @@ import com.velocitypowered.api.proxy.ProxyServer;
 import dev.simplix.protocolize.api.PacketDirection;
 import dev.simplix.protocolize.api.Protocol;
 import dev.simplix.protocolize.api.Protocolize;
-import dev.simplix.protocolize.api.providers.ModuleProvider;
 import lombok.Getter;
 import org.slf4j.Logger;
 
@@ -46,7 +45,8 @@ public class VelocityBook {
 
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event) {
-        Protocolize.getService(ModuleProvider.class).registerModule(new BookModule());
+        //Register the packet
+        Protocolize.protocolRegistration().registerPacket(OpenBookPacket.MAPPINGS, Protocol.PLAY, PacketDirection.CLIENTBOUND, OpenBookPacket.class);
 
         //Load the configs
         Configs.loadConfigs(this);

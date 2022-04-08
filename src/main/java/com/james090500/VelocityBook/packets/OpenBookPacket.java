@@ -26,7 +26,7 @@ import static dev.simplix.protocolize.api.util.ProtocolVersions.*;
 public class OpenBookPacket extends AbstractPacket {
 
     public static final List<ProtocolIdMapping> MAPPINGS = Arrays.asList(
-            AbstractProtocolMapping.rangedIdMapping(MINECRAFT_1_9, MINECRAFT_LATEST, 0x2D)
+            AbstractProtocolMapping.rangedIdMapping(MINECRAFT_1_17_1, MINECRAFT_LATEST, 0x2D)
     );
 
     private Hand hand;
