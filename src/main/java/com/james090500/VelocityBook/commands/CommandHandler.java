@@ -54,7 +54,7 @@ public class CommandHandler {
      * @return
      */
     public int reload(CommandContext<CommandSource> commandSourceCommandContext) {
-        //Configs.loadConfigs(velocityBook);
+        Configs.loadConfigs(velocityBook);
         CommandSource source = commandSourceCommandContext.getSource();
         source.sendMessage(LegacyComponentSerializer.legacyAmpersand().deserialize(velocityBook.PREFIX + "Reloaded"));
         velocityBook.getLogger().info("VelocityBook Reloaded");

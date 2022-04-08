@@ -12,6 +12,7 @@ import dev.simplix.protocolize.api.item.ItemStack;
 import dev.simplix.protocolize.api.player.ProtocolizePlayer;
 import dev.simplix.protocolize.data.ItemType;
 import dev.simplix.protocolize.data.Sound;
+import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 
 public class BookLauncher {
@@ -30,36 +31,32 @@ public class BookLauncher {
     public void execute(String bookName, Player player) {
         ProtocolizePlayer protocolizePlayer = Protocolize.playerProvider().player(player.getUniqueId());
 
-        Configs.Book book = Configs.getBooks().get(bookName);
-        if(book == null) {
+        Configs.Book bookConfig = Configs.getBooks().get(bookName);
+        if(bookConfig == null) {
             player.sendMessage(LegacyComponentSerializer.legacyAmpersand().deserialize(velocityBook.PREFIX + "Book not found"));
             return;
         }
 
         //Stop players with no permissions
-        if(!book.getPerm().equalsIgnoreCase("default") && !player.hasPermission(book.getPerm())) {
+        if(!bookConfig.getPerm().equalsIgnoreCase("default") && !player.hasPermission(bookConfig.getPerm())) {
             player.sendMessage(LegacyComponentSerializer.legacyAmpersand().deserialize(velocityBook.PREFIX + "Book not found"));
             return;
         }
-
-        //Create the book
-        ItemStack bookItem = new ItemStack(ItemType.WRITTEN_BOOK);
 
         //Put book in hand, open then remove book
         PlayerInventory playerInventory = protocolizePlayer.proxyInventory();
         int hand = playerInventory.heldItem() + 36;
 
         //Put book in hand
-        playerInventory.item(hand, bookItem);
+        playerInventory.item(hand, bookConfig.getItemStack());
         playerInventory.heldItem((short) 0);
         playerInventory.update();
 
         //Open Book
-        //Cannot send dev.simplix.protocolize.data.packets.UseItem to players with protocol version 758
-        //I think I need a packet here...
         try {
             protocolizePlayer.sendPacket(new OpenBookPacket(Hand.MAIN_HAND));
         } catch(Exception e) {
+            player.sendMessage(Component.text("Something went wrong! Tell James plz <3"));
             e.printStackTrace();
         }
 
@@ -67,8 +64,8 @@ public class BookLauncher {
         playerInventory.item(hand, new ItemStack(ItemType.AIR));
         playerInventory.update();
 
-        if(book.getSound() != null) {
-            protocolizePlayer.playSound(Sound.valueOf(book.getSound()), SoundCategory.MASTER, 1f, 1f);
+        if(bookConfig.getSound() != null) {
+            protocolizePlayer.playSound(Sound.valueOf(bookConfig.getSound()), SoundCategory.MASTER, 1f, 1f);
         }
     }
 }

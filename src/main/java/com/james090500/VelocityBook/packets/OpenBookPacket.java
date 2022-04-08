@@ -1,6 +1,5 @@
 package com.james090500.VelocityBook.packets;
 
-import com.velocitypowered.api.network.ProtocolVersion;
 import dev.simplix.protocolize.api.Hand;
 import dev.simplix.protocolize.api.PacketDirection;
 import dev.simplix.protocolize.api.mapping.AbstractProtocolMapping;
@@ -14,7 +13,8 @@ import lombok.experimental.Accessors;
 import java.util.Arrays;
 import java.util.List;
 
-import static dev.simplix.protocolize.api.util.ProtocolVersions.*;
+import static dev.simplix.protocolize.api.util.ProtocolVersions.MINECRAFT_1_17_1;
+import static dev.simplix.protocolize.api.util.ProtocolVersions.MINECRAFT_LATEST;
 
 @Getter
 @Setter

@@ -26,7 +26,6 @@ import lombok.Getter;
 import org.slf4j.Logger;
 
 import java.nio.file.Path;
-import java.util.concurrent.TimeUnit;
 
 @Plugin(id = "velocitybook", name = "VelocityBook", version = "1.0.0", description = "Books for the entire proxy", authors = { "james095000" }, dependencies = { @Dependency(id = "protocolize") })
 public class VelocityBook {
@@ -57,7 +56,7 @@ public class VelocityBook {
                 LiteralArgumentBuilder.<CommandSource>literal("vbook").executes(handler::about)
                         .then(LiteralArgumentBuilder.<CommandSource>literal("book").executes(handler::book))
                         .then(LiteralArgumentBuilder.<CommandSource>literal("book").then(RequiredArgumentBuilder.<CommandSource, String>argument("name", StringArgumentType.word()).executes(handler::book)))
-                        .then(LiteralArgumentBuilder.<CommandSource>literal("reload").requires(source -> source.hasPermission("vgui.admin")).executes(handler::reload))
+                        .then(LiteralArgumentBuilder.<CommandSource>literal("reload").requires(source -> source.hasPermission("vbook.admin")).executes(handler::reload))
         ));
 
         //Register command aliases for books

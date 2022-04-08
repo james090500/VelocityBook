@@ -8,8 +8,15 @@ commands = [
     "help",
     "pl"
 ]
-content = """\
-    This is a book
-    This is a new line
-    &4and this is red!
+title = "Book Title"
+author = "Book Author"
+pages = [
+"""\
+This is a book
+This is a new line
+&4and this is red!
+""",
+"""\
+This one is on a new page!
 """
+]
