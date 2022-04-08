@@ -33,7 +33,7 @@ public class OpenBookPacket extends AbstractPacket {
 
     @Override
     public void read(ByteBuf buf, PacketDirection packetDirection, int protocolVersion) {
-        hand = Hand.handByProtocolId(ProtocolUtil.readVarInt(buf));
+        this.hand = Hand.handByProtocolId(ProtocolUtil.readVarInt(buf));
     }
 
     @Override

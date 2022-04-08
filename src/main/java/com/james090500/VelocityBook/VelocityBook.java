@@ -14,6 +14,7 @@ import com.velocitypowered.api.command.CommandSource;
 import com.velocitypowered.api.command.SimpleCommand;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.proxy.ProxyInitializeEvent;
+import com.velocitypowered.api.plugin.Dependency;
 import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.proxy.Player;
@@ -21,12 +22,14 @@ import com.velocitypowered.api.proxy.ProxyServer;
 import dev.simplix.protocolize.api.PacketDirection;
 import dev.simplix.protocolize.api.Protocol;
 import dev.simplix.protocolize.api.Protocolize;
+import dev.simplix.protocolize.api.providers.ModuleProvider;
 import lombok.Getter;
 import org.slf4j.Logger;
 
 import java.nio.file.Path;
+import java.util.concurrent.TimeUnit;
 
-@Plugin(id = "velocitybook", name = "VelocityBook", version = "1.0.0", description = "Books for the entire proxy", authors = { "james095000" })
+@Plugin(id = "velocitybook", name = "VelocityBook", version = "1.0.0", description = "Books for the entire proxy", authors = { "james095000" }, dependencies = { @Dependency(id = "protocolize") })
 public class VelocityBook {
 
     public final String PREFIX = "&e[VelocityBook]&r ";
@@ -43,8 +46,7 @@ public class VelocityBook {
 
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event) {
-        //Register the packet
-        Protocolize.protocolRegistration().registerPacket(OpenBookPacket.MAPPINGS, Protocol.PLAY, PacketDirection.CLIENTBOUND, OpenBookPacket.class);
+        Protocolize.getService(ModuleProvider.class).registerModule(new BookModule());
 
         //Load the configs
         Configs.loadConfigs(this);

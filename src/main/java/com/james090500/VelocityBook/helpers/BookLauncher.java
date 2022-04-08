@@ -4,6 +4,7 @@ import com.james090500.VelocityBook.VelocityBook;
 import com.james090500.VelocityBook.config.Configs;
 import com.james090500.VelocityBook.packets.OpenBookPacket;
 import com.velocitypowered.api.proxy.Player;
+import dev.simplix.protocolize.api.Hand;
 import dev.simplix.protocolize.api.Protocolize;
 import dev.simplix.protocolize.api.SoundCategory;
 import dev.simplix.protocolize.api.inventory.PlayerInventory;
@@ -53,11 +54,14 @@ public class BookLauncher {
         playerInventory.heldItem((short) 0);
         playerInventory.update();
 
+        String test = Protocolize.protocolRegistration().debugInformation();
+        velocityBook.getLogger().warn(test);
+
         //Open Book
         //Cannot send dev.simplix.protocolize.data.packets.UseItem to players with protocol version 758
         //I think I need a packet here...
         try {
-            protocolizePlayer.sendPacket(new OpenBookPacket());
+            protocolizePlayer.sendPacket(new OpenBookPacket(Hand.MAIN_HAND));
         } catch(Exception e) {
             e.printStackTrace();
         }
