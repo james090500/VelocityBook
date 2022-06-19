@@ -13,8 +13,7 @@ import lombok.experimental.Accessors;
 import java.util.Arrays;
 import java.util.List;
 
-import static dev.simplix.protocolize.api.util.ProtocolVersions.MINECRAFT_1_17_1;
-import static dev.simplix.protocolize.api.util.ProtocolVersions.MINECRAFT_LATEST;
+import static dev.simplix.protocolize.api.util.ProtocolVersions.*;
 
 @Getter
 @Setter
@@ -26,7 +25,8 @@ import static dev.simplix.protocolize.api.util.ProtocolVersions.MINECRAFT_LATEST
 public class OpenBookPacket extends AbstractPacket {
 
     public static final List<ProtocolIdMapping> MAPPINGS = Arrays.asList(
-            AbstractProtocolMapping.rangedIdMapping(MINECRAFT_1_17_1, MINECRAFT_LATEST, 0x2D)
+            AbstractProtocolMapping.rangedIdMapping(MINECRAFT_1_17_1, MINECRAFT_1_18_2, 0x2D),
+            AbstractProtocolMapping.rangedIdMapping(MINECRAFT_1_19, MINECRAFT_LATEST, 0x2A)
     );
 
     private Hand hand;

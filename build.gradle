@@ -29,7 +29,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
 
     //Protocolize
-    compileOnly 'dev.simplix:protocolize-api:2.1.2'
+    compileOnly 'dev.simplix:protocolize-api:2.2.1'
 
     //Netty
     compileOnly 'io.netty:netty-all:4.1.75.Final'
