@@ -27,7 +27,7 @@ import org.slf4j.Logger;
 
 import java.nio.file.Path;
 
-@Plugin(id = "velocitybook", name = "VelocityBook", version = "1.0.0", description = "Books for the entire proxy", authors = { "james095000" }, dependencies = { @Dependency(id = "protocolize") })
+@Plugin(id = "velocitybook", name = "VelocityBook", version = "1.1.0", description = "Books for the entire proxy", authors = { "james095000" }, dependencies = { @Dependency(id = "protocolize") })
 public class VelocityBook {
 
     public final String PREFIX = "&e[VelocityBook]&r ";
