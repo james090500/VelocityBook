@@ -27,7 +27,7 @@ import org.slf4j.Logger;
 
 import java.nio.file.Path;
 
-@Plugin(id = "velocitybook", name = "VelocityBook", version = "1.1.0", description = "Books for the entire proxy", authors = { "james095000" }, dependencies = { @Dependency(id = "protocolize") })
+@Plugin(id = "velocitybook", name = "VelocityBook", version = "1.2.0", description = "Books for the entire proxy", authors = { "james095000" }, dependencies = { @Dependency(id = "protocolize") })
 public class VelocityBook {
 
     public final String PREFIX = "&e[VelocityBook]&r ";
@@ -65,8 +65,8 @@ public class VelocityBook {
             if(commands == null || commands.length == 0) return;
 
             CommandMeta.Builder commandBuilder = server.getCommandManager().metaBuilder(commands[0]);
-            for(String commannd : commands) {
-                commandBuilder.aliases(commannd);
+            for(String command : commands) {
+                commandBuilder.aliases(command);
             }
 
             server.getCommandManager().register(commandBuilder.build(), (SimpleCommand) invocation -> {
