@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'com.james090500.VelocityBook'
-version '1.2.0'
+version '1.3.0'
 
 repositories {
     mavenCentral()
@@ -15,21 +15,21 @@ repositories {
 
     maven {
         name 'velocity'
-        url 'https://nexus.velocitypowered.com/repository/maven-public/'
+        url 'https://repo.papermc.io/repository/maven-public/'
     }
 }
 
 dependencies {
     //Velocity
-    compileOnly 'com.velocitypowered:velocity-api:3.1.0'
-    annotationProcessor 'com.velocitypowered:velocity-api:3.1.0'
+    compileOnly 'com.velocitypowered:velocity-api:3.1.1'
+    annotationProcessor 'com.velocitypowered:velocity-api:3.1.1'
 
     //Lombok
     compileOnly 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
 
     //Protocolize
-    compileOnly 'dev.simplix:protocolize-api:2.2.2'
+    compileOnly 'dev.simplix:protocolize-api:2.2.3'
 
     //Netty
     compileOnly 'io.netty:netty-all:4.1.75.Final'
