@@ -28,7 +28,8 @@ public class OpenBookPacket extends AbstractPacket {
             AbstractProtocolMapping.rangedIdMapping(MINECRAFT_1_17_1, MINECRAFT_1_18_2, 0x2D),
             AbstractProtocolMapping.rangedIdMapping(MINECRAFT_1_19, MINECRAFT_1_19, 0x2A),
             AbstractProtocolMapping.rangedIdMapping(MINECRAFT_1_19_1, MINECRAFT_1_19_2, 0x2C),
-            AbstractProtocolMapping.rangedIdMapping(MINECRAFT_1_19_3, MINECRAFT_1_19_3, 0x2B)
+            AbstractProtocolMapping.rangedIdMapping(MINECRAFT_1_19_3, MINECRAFT_1_19_3, 0x2B),
+            AbstractProtocolMapping.rangedIdMapping(MINECRAFT_1_19_4, MINECRAFT_1_19_4, 0x2F)
     );
 
     private Hand hand;

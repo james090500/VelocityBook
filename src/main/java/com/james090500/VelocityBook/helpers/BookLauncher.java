@@ -10,7 +10,6 @@ import dev.simplix.protocolize.api.SoundCategory;
 import dev.simplix.protocolize.api.inventory.PlayerInventory;
 import dev.simplix.protocolize.api.item.ItemStack;
 import dev.simplix.protocolize.api.player.ProtocolizePlayer;
-import dev.simplix.protocolize.data.ItemType;
 import dev.simplix.protocolize.data.Sound;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
